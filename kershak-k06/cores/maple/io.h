@@ -109,8 +109,8 @@ typedef enum WiringPinMode {
  */
 void pinMode(uint8 pin, WiringPinMode mode);
 
-#define HIGH 0x0
-#define LOW  0x1
+#define HIGH 0x1
+#define LOW  0x0
 
 /**
  * Writes a (digital) value to a pin.  The pin must have its
