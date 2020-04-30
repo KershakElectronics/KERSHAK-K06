@@ -1,0 +1,55 @@
+menu.upload_method=Upload method
+
+
+
+
+k06.name=K-06
+k06.vid.0=0x1EAF
+k06.pid.0=0x0004
+k06.build.variant=k06
+k06.build.vect=VECT_TAB_ADDR=0x8000000
+k06.build.core=maple
+k06.build.board=k06
+k06.build.error_led_port=GPIOC
+k06.build.error_led_pin=13
+k06.upload.use_1200bps_touch=false
+k06.upload.file_type=bin
+k06.upload.auto_reset=true
+k06.upload.tool=maple_upload
+k06.upload.protocol=maple_dfu
+
+
+# STM32F103CB -------------------------
+k06.menu.device_variant.STM32F103CB=STM32F103CB (20k RAM. 128k Flash)
+k06.menu.device_variant.STM32F103CB.build.cpu_flags=-DMCU_STM32F103CB
+k06.menu.device_variant.STM32F103CB.build.ldscript=ld/jtag.ld
+k06.menu.device_variant.STM32F103CB.upload.maximum_size=131072
+k06.menu.device_variant.STM32F103CB.upload.maximum_data_size=20480
+
+#---------------------------- UPLOAD METHODS ---------------------------
+
+k06.menu.upload_method.serialMethod=Serial
+k06.menu.upload_method.serialMethod.upload.protocol=maple_serial
+k06.menu.upload_method.serialMethod.upload.tool=serial_upload
+k06.menu.upload_method.serialMethod.build.upload_flags=-DCONFIG_MAPLE_MINI_NO_DISABLE_DEBUG
+
+k06.menu.upload_method.DFUUploadMethod=STM32duino bootloader
+k06.menu.upload_method.DFUUploadMethod.upload.protocol=maple_dfu
+k06.menu.upload_method.DFUUploadMethod.upload.tool=maple_upload
+k06.menu.upload_method.DFUUploadMethod.build.upload_flags=-DSERIAL_USB -DGENERIC_BOOTLOADER
+k06.menu.upload_method.DFUUploadMethod.build.vect=VECT_TAB_ADDR=0x8002000
+k06.menu.upload_method.DFUUploadMethod.build.ldscript=ld/bootloader_20.ld
+k06.menu.upload_method.DFUUploadMethod.upload.usbID=1EAF:0003
+k06.menu.upload_method.DFUUploadMethod.upload.altID=2
+
+
+#-- CPU Clock frequency
+k06.menu.cpu_speed.speed_72mhz=72Mhz (KERSHAK-K06)
+k06.menu.cpu_speed.speed_72mhz.build.f_cpu=72000000L
+
+
+#-- Optimizations
+k06.menu.opt.osstd=Smallest (default)
+k06.menu.opt.o1std=Fast (-O1)
+k06.menu.opt.o1std.build.flags.optimize=-O1
+k06.menu.opt.o1std.build.flags.ldspecs=
